@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+@using Technicians.ViewModels
+@model CreateRequestViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+<h2>Create Request</h2>
+<hr />
+
+<form asp-action="Create" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row myform">
+        <div class="col-md-6 col-lg-4">
+            <div class="form-group myform">
+                <label asp-for="NeededService" class="control-label"></label>
+                <select asp-for="NeededService" asp-items="Html.GetEnumSelectList<NeededService>()" class="form-control"></select>
+                <span asp-validation-for="NeededService" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+
+            <div class="form-group myform">
+                <label asp-for="ServiceType" class="control-label"></label>
+                <input asp-for="ServiceType" class="form-control" />
+                <span asp-validation-for="ServiceType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+
+            <div class="form-group myform">
+                <label asp-for="ScheduleTime" class="control-label"></label>
+                <input asp-for="ScheduleTime" class="form-control" asp-format="{0:dd/MM/yyyy HH:mm}" />
+                <span asp-validation-for="ScheduleTime" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+
+            <div class="form-group myform">
+                <label asp-for="Comment" class="control-label"></label>
+                <textarea asp-for="Comment" class="form-control"></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+
+            <div class="form-group myform">
+                <label asp-for="Photo" class="control-label"></label>
+                <input asp-for="Photo" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+
+            <div class="form-group myform">
+                <label asp-for="Video" class="control-label"></label>
+                <input asp-for="Video" class="form-control">
+            </div>
+        </div>
+    </div>
+    <br>
+    * - Required
+    <div class="form-group creategroup myform">
+        <input type="submit" value="Create" class="mybtn" />
+        <a asp-action="Index" class="cancel">Back</a>
+    </div>
+</form>
+
+
+

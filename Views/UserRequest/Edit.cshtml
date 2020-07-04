@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+@using Technicians.ViewModels
+@model RequestEditViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    var photoPath = "~/Images/" + (Model.ExistingPhotoPath ?? "noimage.jpg");
+    var videoPath = "~/Videos/" + (Model.ExistingVideoPath ?? "novideo.gif");
+
+}
+
+<h2>Edit Request</h2>
+<hr />
+<div class="container">
+<div class="row">
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <input hidden asp-for="Id" />
+        <input hidden asp-for="RefNo" />
+        <input hidden asp-for="RequestStatus" />
+        <input hidden asp-for="ExistingPhotoPath" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row myform">
+            <div class="col-md-6 col-lg-4">
+                <div class="form-group myform">
+                    <label asp-for="NeededService" class="control-label"></label>
+                    <select asp-for="NeededService" asp-items="Html.GetEnumSelectList<NeededService>()" class="form-control"></select>
+                    <span asp-validation-for="NeededService" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="form-group myform">
+                    <label asp-for="ServiceType" class="control-label"></label>
+                    <input asp-for="ServiceType" class="form-control" />
+                    <span asp-validation-for="ServiceType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="form-group myform">
+                    <label asp-for="ScheduleTime" class="control-label"></label>
+                    <input asp-for="ScheduleTime" class="form-control" />
+                    <span asp-validation-for="ScheduleTime" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="form-group myform">
+                    <label asp-for="Comment" class="control-label"></label>
+                    <textarea asp-for="Comment" class="form-control"></textarea>
+                    <span asp-validation-for="Comment" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="form-group myform">
+                    <label asp-for="Photo" class="control-label"></label>
+                    <input asp-for="Photo" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="form-group myform">
+                    <label asp-for="Video" class="control-label"></label>
+                    <input asp-for="Video" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="form-group myform">
+                    <label>Photo</label>
+                    <img src="@photoPath" asp-append-version="true" class="myphoto">
+                </div>
+            </div>
+
+            @if (Model.ExistingVideoPath != null)
+            {
+                <div class="col-lg-4 col-md-6 myform">
+                    <label> Video</label>
+                    <div>
+                        <video width="320" height="240" controls>
+                            <source src="@Url.Content(videoPath)" type='video/mp4' />
+                        </video>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <br />
+
+
+        <div class="col-md-6 col-lg-4">
+            @Html.EditorFor(x => x.DeleteMedia) Delete Uploaded Files
+            * - Required
+
+            <div class="form-group myform">
+                <input type="submit" value="Update" class="mybtn" />
+                <a asp-action="Index" class="cancel">Back</a>
+            </div>
+        </div>
+    </form>
+    </div>

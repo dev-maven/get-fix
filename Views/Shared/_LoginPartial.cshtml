@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Technicians.Models
+@using Technicians.ViewModels
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+    @if (SignInManager.IsSignedIn(User))
+    {
+            @*<p>Hello @UserManager.GetUserAsync(User).Result.FirstName</p>*@
+
+            <form asp-controller="Home" asp-action="LogOff" method="post" id="logoutForm">
+                <button type="submit" class="logout">Log Out</button>
+            </form>
+    }

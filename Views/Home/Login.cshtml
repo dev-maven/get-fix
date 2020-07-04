@@ -1,0 +1,39 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "LogIn";
+}
+<div class="set-width">
+<div class="row">
+    <div class="col-md-6 reg">
+        <form asp-controller="Home" asp-action="Login" class="ui large form validate-me" method="post">
+            <div asp-validation-summary="ModelOnly" class="warning"></div>
+            <div class="myform">
+                <input asp-for="Username" placeholder="Email Address" class="form-control" />
+            </div>
+
+            <div class="myform">
+
+                <input asp-for="Password" placeholder="Password" class="form-control" />
+            </div>
+            <br />
+            <div class="btn-group remember">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                Remember Me
+            </div>
+            <br />
+            <input type="submit" class="about-btn" value="Login" />
+            <a href="@Url.Action("Register","Home")"><input type="button" class="about-btn" value="Register" /></a>
+            <br />
+            <br />
+            <p class="forgot">
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>
+        </form>
+    </div>
+
+    <div class="col-md-6 reg reg-img">
+        @*<img src="~/images/img/logo.png" class="sec-img" />*@
+        </div>
+    </div>
+    </div>

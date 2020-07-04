@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model Technicians.Models.Technician
+
+@{
+    ViewData["Title"] = "Details";
+    var photoPath = "~/certificates/" + (Model.CertificatePath ?? "noimage.jpg");
+
+}
+
+<h2>Details</h2>
+<hr />
+
+<div class="container">
+    <dl class="dl-horizontal">
+        <div class="row myform">
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.EmailAddress)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EmailAddress)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateRegistered)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DateRegistered)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CertificatePath)
+                </dt>
+                <dd data-toggle="modal" data-target="#myModal">
+                    <img src="@photoPath" asp-append-version="true" class="myphoto" />
+                </dd>
+            </div>
+    </dl>
+</div>
+<br>
+<div>
+    <a asp-action="Index" class="cancel">Back to List</a>
+</div>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+
+        <img src="@photoPath" asp-append-version="true" />
+    </div>
+</div>
+

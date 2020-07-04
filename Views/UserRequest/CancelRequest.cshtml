@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+@using Technicians.ViewModels
+@model RequestCancelViewModel
+
+@{
+    ViewData["Title"] = "CancelRequest";
+}
+<br />
+<h2>Cancel Request</h2>
+<hr />
+<form asp-action="CancelRequest" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row myform">
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="form-group myform">
+                <label asp-for="CancellationRemark" class="control-label"></label>
+                <textarea asp-for="CancellationRemark" class="form-control"></textarea>
+                <span asp-validation-for="CancellationRemark" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    * - Required
+
+    <div class="form-group creategroup myform">
+        <input type="submit" value="Cancel Request" class="mybtn" />
+        <a asp-action="Index" class="cancel">Back</a>
+    </div>
+</form>
+
+
+
+
+

@@ -1,0 +1,136 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Technicians.ng</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/images/img/favicon.png" rel="icon">
+    <link href="~/images/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+          rel="stylesheet">
+    <environment include="Development">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/css/appstyle.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="~/lib/venobox/venobox.css" rel="stylesheet">
+        <link href="~/lib/owlcarousel/owl.carousel.min.js" rel="stylesheet">
+    </environment>
+
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/css/appstyle.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="~/lib/venobox/venobox.css" rel="stylesheet">
+        <link href="~/lib/owlcarousel/owl.carousel.min.js" rel="stylesheet">
+    </environment>
+
+
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div id="logo" class="pull-left">
+                <a href="@Url.Action("Login","Home")" class="scrollto"><img src="~/images/img/logo.png" alt="" title=""></a>
+            </div>
+            <span style="color:antiquewhite; float:right"> </span>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "menu-active" : "")"><a href="@Url.Action("Index","UserRequest")">Dashboard</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Profile" ? "menu-active" : "")"><a href="@Url.Action("Profile","UserRequest")">My Profile</a></li>
+                    <li>@await Html.PartialAsync("_LoginPartial")</li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+    <main id="main">
+
+
+        <partial name="_CookieConsentPartial" />
+
+        @*<div class="container body-content">*@
+
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+                @RenderBody()
+
+            </div>
+        </section>
+        <footer id="footer" class="navbar-fixed-bottom">
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong>Webvest Limited</strong>. All Rights Reserved
+                </div>
+            </div>
+        </footer>
+        @*</div>*@
+
+        <environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+            <script src="~/lib/jquery/jquery.min.js"></script>
+            <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+            <script src="~/lib/jquery/jquery-migrate.min.js"></script>
+            <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="~/lib/easing/easing.min.js"></script>
+            <script src="~/lib/superfish/hoverIntent.js"></script>
+            <script src="~/lib/superfish/superfish.min.js"></script>
+            <script src="~/lib/wow/wow.min.js"></script>
+            <script src="~/lib/venobox/venobox.min.js"></script>
+            <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+            <script src="~/js/main.js"></script>
+
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+            </script>
+            <script src="~/lib/jquery/jquery.min.js"></script>
+            <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+            <script src="~/lib/jquery/jquery-migrate.min.js"></script>
+            <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="~/lib/easing/easing.min.js"></script>
+            <script src="~/lib/superfish/hoverIntent.js"></script>
+            <script src="~/lib/superfish/superfish.min.js"></script>
+            <script src="~/lib/wow/wow.min.js"></script>
+            <script src="~/lib/venobox/venobox.min.js"></script>
+            <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+            <script src="~/js/main.js" asp-append-version="true"></script>
+
+        </environment>
+
+        @RenderSection("Scripts", required: false)
+</body>
+</html>
+

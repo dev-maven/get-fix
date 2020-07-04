@@ -1,0 +1,93 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+@model PaginatedList<Technicians.Models.Request>
+@using Microsoft.AspNetCore.Identity
+@using Technicians.Models
+@using Technicians.ViewModels
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "My Dashboard";
+}
+<div class="container">
+    @if (UserManager.GetUserAsync(User).Result.Membership == MembershipType.SUB)
+    {
+
+        <div class="balance">
+            My Balance : ₦@UserManager.GetUserAsync(User).Result.MyBalance.ToString("N0")
+        </div>
+    }
+</div>
+<br>
+<br>
+<p>
+    <a asp-action="Create">Create New Request</a>
+</p>
+@using (Html.BeginForm("Index", "UserRequest", FormMethod.Get))
+{<div class="row">
+        <div class="col-md-6">
+            <div class="input-group">
+                Find by Service:   @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+                <input type="submit" value="Search" />
+            </div>
+        </div>
+
+    </div>
+
+
+    <br />
+
+}
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="card-mb-3 col-md-6 col-lg-4">
+            <div class="card-header">
+                <label>Request Unique Number:</label> @item.RefNo<br>
+            </div>
+            <div class="card-body">
+                <p><label class="card-title">Needed Service:</label> @Html.DisplayFor(modelItem => item.NeededService)</p>
+                <p><label class="card-text"> Scheduled Time:</label> @item.ScheduleTime </p>
+                <p><label class="card-text"> Request Status:</label> @Html.DisplayFor(modelItem => item.RequestStatus)</p>
+                <p><label class="card-text"> Payment Status:</label> @Html.DisplayFor(modelItem => item.PaymentStatus)</p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.RequestId">Edit</a>
+                <a class="btn btn-success" asp-action="Details" asp-route-id="@item.RequestId">Details</a>
+                <a class="btn btn-danger" asp-action="CancelRequest" asp-route-id="@item.RequestId">Cancel</a>
+            </div>
+            <br>
+        </div>
+    }
+
+    <br>
+</div>
+<div class="row">
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
+    </div>

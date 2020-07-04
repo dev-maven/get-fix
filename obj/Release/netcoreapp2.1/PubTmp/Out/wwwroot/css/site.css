@@ -1,0 +1,125 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+
+
+a.btn{
+    font-size: 1.3rem!important;
+}
+
+.cancel {
+    color: #fff;
+    background: #f40102;
+    padding: 7px 22px;
+    margin-right: 10px;
+    border-radius: 50px;
+    border: 2px solid #f40102;
+    transition: all ease-in-out 0.3s;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-top: 2px;
+    line-height: 1;
+    font-size: 13px;
+}
+
+    .cancel:hover {
+        text-decoration: none;
+        color: #fff;
+        font-size: large;
+    }
+.mybtn {
+    color: #fff;
+    background: #101522;
+    padding: 7px 22px;
+    margin-right: 10px;
+    border-radius: 50px;
+    border: 2px solid #f82249;
+    transition: all ease-in-out 0.3s;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-top: 2px;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+    .mybtn:hover {
+        background: transparent;
+        color: black;
+        font-size: large;
+        text-decoration: none !important;
+    }
+.logout {
+    color: #fff;
+    background: #f82249;
+    padding: 7px 22px;
+    border-radius: 50px;
+    border: 2px solid #f82249;
+    transition: all ease-in-out 0.3s;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-top: 2px;
+    line-height: 1;
+    font-size: 13px;
+}
+
+.logout:hover {
+    background: none;
+}
+
+.logout:before,
+.logout:before {
+    visibility: hidden;
+}
+ .getReport{
+     float: right;
+ }
+
+.warning {
+    color: #dcf50d !important;
+    font-weight: bolder;
+}
+p.footer-text {
+    margin: 5px 0 5px !important;
+}
+.hidden {
+    display: none !important;
+}
+.navbar-brand {
+    color: #ff6a00 !important;
+    height: 4rem !important;
+    font-size: 2rem !important;
+}
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

@@ -1,0 +1,739 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Technicians.ng</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/images/img/favicon.png" rel="icon">
+    <link href="~/images/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="~/lib/bootstrap/css/bootstrap.min.css"   rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/lib/venobox/venobox.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/owl.carousel.min.js" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="~/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--==========================
+      Header
+    ============================-->
+    <header id="header">
+        <div class="container">
+
+            <div id="logo" class="pull-left">
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+                <a href="#intro" class="scrollto"><img src="~/images/img/logo.png" alt="" title=""></a>
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="#intro">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#venue">Our Services</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#speakers">What we do</a></li>
+                    <li><a href="#schedule">Our Values</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="buy-tickets"><a data-toggle="modal" data-target="#regModal">Join Now</a></li>
+                    <li class="buy-tickets login"><a href="@Url.Action("Login","Home")">Login</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+      Intro Section
+    ============================-->
+    <section id="intro">
+        <div class="intro-container wow fadeIn">
+            <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel" data-interval="1600">
+                <ol class="carousel-indicators"></ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="carousel-background"><img src="~/images/img/intro-carousel/1.jpg" alt=""></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="~/images/img/intro-carousel/2.jpg" alt=""></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="~/images/img/intro-carousel/3.jpg" alt=""></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="~/images/img/intro-carousel/4.jpg" alt=""></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="~/images/img/intro-carousel/6.jpg" alt=""></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="~/images/img/intro-carousel/7.jpg" alt=""></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="introtext">
+                <h1 class="mb-4 pb-0">Home<br><span>Maintenance<br></span>With EASE!</h1>
+                <div class="input-group">
+                    <select class=" form-control" id="serviceDropdown">
+                        <option disabled selected>Select a service...</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="airConditioning">Air Conditioning </option>
+                        <option value="plumbing">Plumbing </option>
+                        <option value="sewageRemoval">Sewage Removal</option>
+                        <option value="cleaning">Cleaning</option>
+                    </select>
+                    <button class="btn btn-danger serviceSelect" id="serviceBtn">Go</button>
+                </div>
+                <p class="mb-4 pb-0">
+                    Register your property, get it audited
+                    <br>and stored in our database
+                </p>
+                <span data-toggle="modal" data-target="#regModal" class="about-btn scrollto">Register Now</span>
+                <a href="@Url.Action("Login","Home")" class="about-btn scrollto">Request a Tech</a>
+            </div>
+
+
+            <!--Register Modal -->
+            <div id="regModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!--Register Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span>WELCOME</span>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <a href="@Url.Action("Register","Home")" class="about-btn scrollto">Register as a User</a>
+                            <a href="@Url.Action("Create","Technicians")" class="about-btn scrollto">Register as a Technician</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--Electrical Modal -->
+            <div id="electrical" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!--Electrical Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span>ELECTRICAL</span>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body tips">
+                            Regular electrical maintenance enhances the smooth running of all the electricity-powered items in your home <br>
+                            While creating a safe environment that will be free from all sorts of hazards.  <br>
+                            Of the various ways to maintain your home’s electrical fixtures, the most efficient way is to make certain that you pass regular checks on all electrical installations in your home. <br>
+                            That will, in most cases, be best accomplished by an experienced electrical professional.
+                        </div>
+                        <div class="modal-footer">
+                            <a href="@Url.Action("Create","UserRequest")" class="about-btn scrollto">Request Electrician</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--Air Conditioning Modal -->
+            <div id="airConditioning" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!--air Conditioning Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span>AIR CONDITIONING</span>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body tips">
+                            Ensure your air conditioning system gets the attention it needs by following a routine maintenance schedule<br>
+                            Which when done with proper care can extend the life of your air conditioning unit, improve energy efficiency in your home <br>
+                            Avoid emergency breakdowns and lower your monthly energy cost. Many homeowners wonder why they can’t just complete an entire tune-up themselves <br>
+                            The fact is a thorough & comprehensive tune-up requires skills, tools, and knowledge that only experienced HVAC technicians can deliver
+                        </div>
+                        <div class="modal-footer">
+                            <a href="@Url.Action("Create","UserRequest")" class="about-btn scrollto">Request HVAC technician</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--Plumbing Modal -->
+            <div id="plumbing" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!--Plumbing Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span>PLUMBING</span>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body tips">
+                            Plumbing maintenance is important in case you wish to reside in your house without worrying over problems like pipe leaks and drain clogs.<br>
+                            Here are some maintenance procedures that are best performed at least once a year to keep your plumbing system working smoothly.
+                            <ul>
+                                <li>Repair leaks</li>
+                                <li>Clear out slow drains</li>
+                                <li>Clean faucet aerators and shower heads</li>
+                                <li>Have your sewer line inspected</li>
+                                <li>Flush your water heater tank</li>
+                                <li>Fix valves</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="@Url.Action("Create","UserRequest")" class="about-btn scrollto">Request Plumber</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--Sewage Removal Modal -->
+            <div id="sewageRemoval" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!--Cleaning Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span>SEWAGE REMOVAL</span>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            Little Sewage Removal tips...
+                        </div>
+                        <div class="modal-footer">
+                            <a href="@Url.Action("Create","UserRequest")" class="about-btn scrollto">Request Sewage Remover</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--Cleaning Modal -->
+            <div id="cleaning" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!--Cleaning Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span>CLEANING</span>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            Little Cleaning tips...
+                        </div>
+                        <div class="modal-footer">
+                            <a href="@Url.Action("Create","UserRequest")" class="about-btn scrollto">Request Cleaner</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="myplay">
+                <a href="https://youtu.be/P7zYmnRUAEU" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            </div>
+        </div>
+
+
+    </section>
+
+    <main id="main">
+
+        <!--==========================
+      About Section
+    ============================-->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2>About Us</h2>
+                        <p>
+                            Technicians.ng is web/mobile application initiative,
+                            which aims to fix common household issues in order to make home maintenance hassle free and efficient. 
+                        </p>
+                    </div>
+                    <!-- <div class="col-lg-4">
+
+                  <img src="img/techyhouse.jpg">
+                </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!--==========================
+      Service Section
+    ============================-->
+        <section id="venue" class="wow fadeInUp">
+
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                </div>
+
+                <div class="row myservice">
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/1.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Plumbing</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/2.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Handy Man Services</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/3.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Air Conditioning</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/4.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Stone & Masonry</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/5.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Cleaning Service</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/6.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Waste Disposal</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/7.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Pest Control</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/8.jpg" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Pool/Water Treatment</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/9.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Electrical</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/10.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Lawn Maintenance</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/11.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Painting</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/12.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Lock Smith</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/13.jpg" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Powerwash, Stain & Seal</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/14.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Smart Home Install</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/15.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Generator Maintenance</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/16.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Gas & Diesel<br> Supply</h4>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <img src="~/images/img/services/17.png" class="icon"><i class="ion-ios-analytics-outline"></i></img>
+                        <h4 class="title">Moving & Delivery</h4>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </section>
+
+
+        <!--==========================
+      F.A.Q Section
+    ============================-->
+        <section id="faq" class="wow fadeInUp">
+
+            <div class="container">
+
+                <div class="section-header">
+                    <h2>F.A.Q </h2>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <ul id="faq-list">
+
+                            <li>
+                                <a data-toggle="collapse" class="collapsed" href="#faq1">
+                                    How does it work?
+                                    <i class="fa fa-minus-circle"></i>
+                                </a>
+                                <div id="faq1" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                        <ul>
+                                            <li>Click on ‘request a service’ to complete the request form.</li>
+                                            <li>At the successful submission of your request, a nearby technician will be assigned to you.</li>
+                                            <li>Payment will be made at the end of the service.</li>
+                                        </ul>
+
+                                          
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-toggle="collapse" class="collapsed" href="#faq2">
+                                    What are your Service Plans?
+                                    <i class="fa fa-minus-circle"></i>
+                                </a>
+                                <div id="faq2" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                        Our service plans include:
+                                        <ul>
+                                            <li><b>Pay Per Request:</b>  User makes cash or card payment on completion of every service rendered Job/request.</li>
+                                            <li><b>Subscriber’s Package:</b> User makes an upfront deposit which covers all services, including routine maintenance, for a given period of time.</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </li>
+
+                            @*<li>
+                                <a data-toggle="collapse" href="#faq9" class="collapsed">
+                                    How do I Subscribe?
+                                    <i class="fa fa-minus-circle"></i>
+                                </a>
+                                <div id="faq9" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                        Our subscription plans will be sent to you after registration <br>
+                                        Select a package,and then credit your account with the minimum required amount.
+                                    </p>
+                                </div>
+                            </li>*@
+
+                            <li>
+                                <a data-toggle="collapse" href="#faq3" class="collapsed">
+                                    Do the technicians work 24hrs?
+                                    <i class="fa fa-minus-circle"></i>
+                                </a>
+                                <div id="faq3" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                       At present, our technicians work between 8am to 9pm. However, work hours in certain areas will be reviewed based on demand.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-toggle="collapse" href="#faq4" class="collapsed">
+                                    How soon can I get a technician?
+                                    <i class="fa fa-minus-circle"></i>
+                                </a>
+                                <div id="faq4" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                        On successful creation of request, a technician arrives at your address at the time you scheduled.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-toggle="collapse" href="#faq5" class="collapsed">
+                                    How do I make payment? <i class="fa fa-minus-circle"></i>
+                                </a>
+                                <div id="faq5" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                        Payment can be made via cash, card or bank transfer.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-toggle="collapse" href="#faq6" class="collapsed">
+                                    Do I need to sign up for all of your services?
+                                    <i class="fa fa-minus-circle"></i>
+                                </a>
+                                <div id="faq6" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                        Yes, signing up is required for any maintenance request.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-toggle="collapse" href="#faq7" class="collapsed">
+                                    Why should I sign up?
+                                    <i class="fa fa-minus-circle"></i>
+                                </a>
+                                <div id="faq7" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                        <ul>
+                                            <li>we take care of the preventive maintenance that is needed to keep your home in prime condition.</li>
+                                            <li>we get you competent technician fast without hassles of tiring search.</li>
+                                            <li>we give you a trusted single source for dealing with anything that goes wrong in your home.</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--==========================
+      What we do Section
+    ============================-->
+        <section id="speakers" class="wow fadeInUp">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What we do</h2>
+                    <p>Here are some of our operations</p>
+                </div>
+
+                <div class="row operation-cols">
+
+                    <div class="col-md-4 wow fadeInUp">
+                        <div class="operation-col">
+                            <div class="img operation-image">
+                                <img src="~/images/img/operations/hire.jpg" alt="" class="img-fluid">
+                            </div>
+                            <h2 class="title operation-image">We Bridge</h2>
+                            <p>
+                                We create as bridge between home owners and highly skilled technicians for home maintenance.
+                                Taking away the
+                                hassle of searching for reliable technicians to fix common household issues.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="operation-col">
+                            <div class="img operation-image">
+                                <img src="~/images/img/operations/fix.jpg" alt="" class="img-fluid">
+                            </div>
+                            <h2 class="title operation-image">We Fix</h2>
+                            <p>
+                                Home owners, Simply specify an ideal time for you and we'll match you with a nearby
+                                Technician to Fix your broken AC/Pipe/Tap/Toilet/Light switch/Roof/ and other small house breaks.
+                                Each Technican goes through a thorough vetting process, and rated by
+                                other users.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="operation-col">
+                            <div class="img operation-image">
+                                <img src="~/images/img/operations/house.jpg" alt="" class="img-fluid">
+                            </div>
+                            <h2 class="title operation-image">We Maintain</h2>
+                            <p>
+                                Maintain your propertiesfrom anywhere with Technicians.ng
+                                property maintenance app.This is a software that helps property managers organize
+                                their maintenance operations — from our mobile application
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!--==========================
+      Schedule Section
+    ============================-->
+        <section id="schedule" class="section-with-bg">
+            <div class="container wow fadeInUp">
+                <div class="section-header">
+                    <h2>Our Values</h2>
+                </div>
+                <div class="row operation-cols">
+                    <div class="row">
+                        <div class="col-md-4 wow fadeInUp">
+                            <div class="operation-col">
+                                <div class="img operation-image">
+                                    <img src="~/images/img/values/1.jpg" alt="" class="img-fluid">
+                                </div>
+                                <h2 class="title operation-image">Safety</h2>
+                                <p>
+                                    We are commited to equipting our technicians to create a work enviroment
+                                    that places the utmost importance safety, health and well-being.It is our responsibility
+                                    to ensure our dispatched Technicians go home to families at the end of the day.
+                                    As a company, We fulfill our safety goals together by constantly informing and training
+                                    Technicnas to comply with all laws and regulations related to safety,
+                                    we can all enjoy getting the Job done in a productive and safe environment.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="operation-col">
+                                <div class="img operation-image">
+                                    <img src="~/images/img/values/2.jpg" alt="" class="img-fluid">
+                                </div>
+                                <h2 class="title operation-image">Quality Technicians</h2>
+                                <p>
+                                    Our Technicians are <b>Experienced, Educated, Honest, Courteous, Dedicated</b>.Our technicians undergo
+                                    a
+                                    certain level of training and are certified to offer great service get your home back up and running
+                                    in good time. From diagnosis to the job itself to completion, our technicians are incredibly
+                                    diligent about minimizing the impact on your life with this repair. Our team is amazing at giving
+                                    you an accurate picture of the time that this job will take so that you can continue on living your
+                                    life.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="operation-col">
+                                <div class="img operation-image">
+                                    <img src="~/images/img/values/3.jpg" alt="" class="img-fluid">
+                                </div>
+                                <h2 class="title operation-image">Fair Rates</h2>
+                                <p>
+                                    Our rates are set from the Industry average, giving you the best rate for the quality
+                                    of work.<br>
+                                    And we guarantee you a good fix with original materials.All with ease and in a record time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+        <!--==========================
+      Subscribe Section
+    ============================-->
+        <section id="subscribe">
+            <div class="container wow fadeInUp mysubscribe">
+                <div class="section-header">
+                    <p>Be an Early Bird, Register now and get 2 Free requests for your home maintenance</p>
+                </div>
+
+                <div class="col-auto">
+                    <a href="@Url.Action("Register","Home")"><button type="submit">Get Started</button></a>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!--==========================
+      Footer
+    ============================-->
+        <footer id="footer">
+            <div class="footer-top">
+                <section id="contact">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-6 col-md-6 footer-info">
+                                <img src="~/images/img/logo.png" alt="Technicians.ng">
+                                <p>Technicians.ng is a product of Webvest Limited.<br> Terms and conditions apply</p>
+                            </div>
+
+                            <!-- <div class="col-lg-4 col-md-6 footer-links">
+                          <h4>Useful Links</h4>
+                          <ul>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+                          </ul>
+                        </div> -->
+
+                            <div class="col-lg-6 col-md-6 footer-contact">
+                                <h4>Contact Us</h4>
+                                <p>
+                                    3rd Floor B-Wing Amazing Grace,
+                                    <br>
+                                    Plaza 2E-4E Ligali Ayorinde Street,<br>
+                                    Victoria Island, Lagos,<br>
+                                    Nigeria.<br>
+                                    <strong>Phone:</strong><a href="tel:+23414610207">+234 1 4610207</a><br>
+                                    <strong>Phone:</strong><a href="tel:+23414617727">+234 1 4617727</a><br>
+                                    <strong>Email:</strong> <a href="info@techniciansng.com">info@techniciansng.com</a><br>
+                                </p>
+
+                                <div class="social-links">
+                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                    <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong>Webvest Limited</strong>. All Rights Reserved
+                </div>
+            </div>
+        </footer>
+        <!-- #footer -->
+
+        <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <script src="~/lib/jquery/jquery-migrate.min.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/easing/easing.min.js"></script>
+        <script src="~/lib/superfish/hoverIntent.js"></script>
+        <script src="~/lib/superfish/superfish.min.js"></script>
+        <script src="~/lib/wow/wow.min.js"></script>
+        <script src="~/lib/venobox/venobox.min.js"></script>
+        <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
+        <!-- Contact Form JavaScript File -->
+        <script src="contactform/contactform.js"></script>
+
+        <!-- Template Main Javascript File -->
+        <script src="~/js/main.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+﻿@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+@model Technicians.Models.Request
+
+@{
+    ViewData["Title"] = "Details";
+    var photoPath = "~/Images/" + (Model.PhotoPath ?? "noimage.jpg");
+    var videoPath = "~/Videos/" + (Model.VideoPath ?? "novideo.gif");
+
+}
+
+<h2>Completed Request</h2>
+<hr />
+
+<div class="container">
+    <dl class="dl-horizontal">
+        <div class="row myform">
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CustomerName)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NeededService)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NeededService)
+                </dd>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ServiceType)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ServiceType)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ScheduleTime)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ScheduleTime)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Comment)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Comment)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.MembershipType)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MembershipType)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.RequestStatus)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RequestStatus)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cost)
+                </dt>
+                <dd>
+
+                    @Html.DisplayFor(model => model.NairaCost)
+                </dd>
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CostDetails)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CostDetails)
+            </div>
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    @Html.DisplayNameFor(model => model.PaymentStatus)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PaymentStatus)
+            </div>
+
+            @if (Model.RequestStatus == RequestStatus.cancelled)
+            {
+                <div class="col-lg-4 col-md-6 myform">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CancellationRemark)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.CancellationRemark)
+                    </dd>
+                </div>
+
+            }
+
+        </div>
+
+
+        <div class="row myform">
+
+            <div class="col-lg-4 col-md-6 myform">
+                <dt>
+                    Photo
+                </dt>
+                <dd data-toggle="modal" data-target="#myModal">
+                    <img src="@photoPath" asp-append-version="true" class="myphoto" />
+                </dd>
+            </div>
+            @if (Model.VideoPath != null)
+            {
+                <div class="col-lg-4 col-md-6 myform">
+                    <dt>
+                        Video
+                    </dt>
+                    <dd>
+
+                        <div>
+                            <video width="320" height="240" controls>
+                                <source src="@Url.Content(videoPath)" type='video/mp4' />
+                            </video>
+                        </div>
+                    </dd>
+                </div>
+            }
+          
+
+        </div>
+    </dl>
+
+    <div>
+        <a asp-action="Index" class="mybtn">Back to Dashboard</a>
+    </div>
+
+    <div class="modal fade" id="myModal">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <img src="@photoPath" asp-append-version="true" />
+        </div>
+    </div>
+</div>
+
+
+

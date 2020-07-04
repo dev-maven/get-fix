@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Technicians.Models
+@using Technicians.ViewModels
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "AccessDenied";
+}
+
+    <div class="info-msg access">
+
+        <h2>You are Unauthorized!</h2>
+        <br />
+
+        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+        {
+
+            <a asp-action="Index" asp-controller="Request" class="cancel">Back to Dashboard</a>
+        }
+
+
+        else
+        {
+        <a asp-action="Index" asp-controller="UserRequest" class="cancel">Back to Dashboard</a>
+        }
+    </div>
+
